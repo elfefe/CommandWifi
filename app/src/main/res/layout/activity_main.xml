@@ -13,11 +13,11 @@
         android:id="@+id/input"
 
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="60dp"
 
         android:layout_margin="50dp"
 
-        android:hint="Enter your command here."
+        android:hint="@string/enter_your_command_here"
 
         android:textAlignment="center"
 
@@ -26,7 +26,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/log"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center" />
 
     <CheckBox
         android:id="@+id/check_su"
@@ -39,6 +40,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/exec" />
 
+    <TextView
+        android:id="@+id/label_root"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/root"
+        app:layout_constraintBottom_toBottomOf="@+id/check_su"
+        app:layout_constraintStart_toEndOf="@+id/check_su"
+        app:layout_constraintTop_toTopOf="@+id/check_su" />
+
     <Button
         android:id="@+id/exec"
 
@@ -47,7 +59,7 @@
 
         android:layout_margin="20dp"
 
-        android:text = "execute"
+        android:text = "@string/execute"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input"
@@ -78,7 +90,7 @@
 
         android:background="#11909090"
 
-        android:hint="Filter"
+        android:hint="@string/filter"
         android:textAlignment="center"
 
         android:layout_marginHorizontal="100dp"
@@ -86,5 +98,6 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal" />
 </androidx.constraintlayout.widget.ConstraintLayout>

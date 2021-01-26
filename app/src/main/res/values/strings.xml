@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CommandWifi</string>
+    <string name="root">Root</string>
+    <string name="filter">Filter</string>
+    <string name="execute">execute</string>
+    <string name="enter_your_command_here">Enter your command here.</string>
 </resources>

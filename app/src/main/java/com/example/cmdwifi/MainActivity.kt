@@ -54,13 +54,17 @@ class MainActivity : AppCompatActivity() {
             val process = Runtime.getRuntime().exec(command)
 
             val reader = BufferedReader(InputStreamReader(process.inputStream))
+            val errorReader = BufferedReader(InputStreamReader(process.errorStream))
+
             var lines = ""
 
             var i = 0
-            reader.forEachLine { line ->
+            (if (errorReader.read() != -1) errorReader else reader).forEachLine { line ->
                 if ((++i) < 10000)
                     lines += "$line \n"
             }
+
+            println("Lines: ${lines.length}")
 
             return lines
         } catch (e: IOException) {
@@ -69,40 +73,6 @@ class MainActivity : AppCompatActivity() {
 
         return ""
     }
-
-   /* private fun extractLog(): String {
-
-        //write log to file
-        val pid = android.os.Process.myPid()
-
-        try {
-            val command = "logcat -d $filter"
-            val process = Runtime.getRuntime().exec(command)
-
-            val reader = BufferedReader(InputStreamReader(process.inputStream))
-            var lines = ""
-
-            var i = 0
-            reader.forEachLine { line ->
-                if ((++i) < 10000)
-                    lines += "$line \n"
-            }
-
-            return lines
-        } catch (e: IOException) {
-            Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
-        }
-
-
-        //clear the log
-        *//*try {
-            Runtime.getRuntime().exec("logcat -c")
-        } catch (e: IOException) {
-            Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
-        }*//*
-
-        return ""
-    } */
 
     fun clearLog() {
         try {
